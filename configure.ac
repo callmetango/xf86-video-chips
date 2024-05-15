@@ -93,15 +93,6 @@ AC_MSG_CHECKING([whether to include XAA support])
 AM_CONDITIONAL(XAA, test "x$XAA" = xyes)
 AC_MSG_RESULT([$XAA])
 
-save_CFLAGS="$CFLAGS"
-CFLAGS="$XORG_CFLAGS"
-AC_CHECK_DECL(xf86ConfigIsaEntity,
-	      [AC_DEFINE(HAVE_ISA, 1, [Have ISA support])],
-	      [],
-	      [#include "xf86.h"])
-CFLAGS="$save_CFLAGS"
-
-
 # Checks for functions (often defined as inlines in compiler.h)
 AC_MSG_CHECKING([for inb])
 AC_LINK_IFELSE([AC_LANG_SOURCE([
